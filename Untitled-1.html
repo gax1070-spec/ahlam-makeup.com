@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ahlam Makeup</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fde7f0;
+        }
+
+        .logo {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #c2185b;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #c2185b;
+        }
+
+        /* Contact button */
+        .contact-btn {
+            margin-top: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: #c2185b;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .popup {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: block;
+            margin: 10px auto;
+            padding: 12px;
+            width: 200px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        .call {
+            background: #c2185b;
+        }
+
+        .whatsapp {
+            background: #25D366;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo">💄 Ahlam Makeup</div>
+
+    <div class="container">
+        <div class="card">
+            <h1>Ahlam Makeup</h1>
+            <p>Professional Makeup Services</p>
+
+            <!-- Contact icon -->
+            <button class="contact-btn" onclick="toggleContact()">☎️</button>
+
+            <!-- Contact options -->
+            <div class="popup" id="popup">
+                <a class="btn call" href="tel:+96566088908">📞 Call</a>
+                <a class="btn whatsapp"
+                   href="https://wa.me/96566088908"
+                   target="_blank">
+                   💬 WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContact() {
+            const popup = document.getElementById("popup");
+            popup.style.display =
+                popup.style.display === "block" ? "none" : "block";
+        }
+    </script>
+
+</body>
+</html>
