@@ -1,114 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Ahlam Makeup</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahlam Makeup</title>
+  <style>
+    :root {
+      --pink: #ff69b4;
+      --light-pink: #ffe4f1;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #fde7f0;
-        }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--light-pink);
+      color: #333;
+      text-align: center;
+    }
 
-        .logo {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #c2185b;
-        }
+    header {
+      background: var(--pink);
+      padding: 20px;
+      color: white;
+    }
 
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            width: 320px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
+    .container {
+      padding: 40px 20px;
+    }
 
-        h1 {
-            color: #c2185b;
-        }
+    .call-btn {
+      display: inline-block;
+      background: var(--pink);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
 
-        /* Contact button */
-        .contact-btn {
-            margin-top: 15px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            background: #c2185b;
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-        }
+    .call-btn:hover {
+      background: #ff4da6;
+    }
 
-        .popup {
-            display: none;
-            margin-top: 20px;
-        }
+    .lang-switch {
+      margin-top: 30px;
+    }
 
-        .btn {
-            display: block;
-            margin: 10px auto;
-            padding: 12px;
-            width: 200px;
-            border-radius: 6px;
-            text-decoration: none;
-            color: white;
-            font-size: 16px;
-        }
+    select {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
 
-        .call {
-            background: #c2185b;
-        }
-
-        .whatsapp {
-            background: #25D366;
-        }
-    </style>
+    footer {
+      margin-top: 50px;
+      padding: 15px;
+      background: #f8cde3;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1 id="title">Ahlam Makeup</h1>
+    <p id="subtitle">Professional Makeup Artist</p>
+  </header>
 
-    <div class="logo">💄 Ahlam Makeup</div>
+  <div class="container">
+    <p id="desc">Click the button below to contact Ahlam via WhatsApp</p>
 
-    <div class="container">
-        <div class="card">
-            <h1>Ahlam Makeup</h1>
-            <p>Professional Makeup Services</p>
+    <!-- WhatsApp Call Button -->
+    <a
+      class="call-btn"
+      id="callBtn"
+      href="https://wa.me/96500000000"
+      target="_blank"
+    >
+      Call on WhatsApp
+    </a>
 
-            <!-- Contact icon -->
-            <button class="contact-btn" onclick="toggleContact()">☎️</button>
-
-            <!-- Contact options -->
-            <div class="popup" id="popup">
-                <a class="btn call" href="tel:+96566088908">📞 Call</a>
-                <a class="btn whatsapp"
-                   href="https://wa.me/96566088908"
-                   target="_blank">
-                   💬 WhatsApp
-                </a>
-            </div>
-        </div>
+    <!-- Language Switcher -->
+    <div class="lang-switch">
+      <select onchange="changeLang(this.value)">
+        <option value="en">English</option>
+        <option value="ar">العربية</option>
+      </select>
     </div>
+  </div>
 
-    <script>
-        function toggleContact() {
-            const popup = document.getElementById("popup");
-            popup.style.display =
-                popup.style.display === "block" ? "none" : "block";
-        }
-    </script>
+  <footer>
+    <p>© 2026 Ahlam Makeup</p>
+  </footer>
 
+  <script>
+    function changeLang(lang) {
+      if (lang === 'ar') {
+        document.documentElement.lang = 'ar';
+        document.body.style.direction = 'rtl';
+        document.getElementById('title').innerText = 'أحلام ميك أب';
+        document.getElementById('subtitle').innerText = 'خبيرة مكياج محترفة';
+        document.getElementById('desc').innerText = 'اضغطي على الزر للتواصل مع أحلام عبر واتساب';
+        document.getElementById('callBtn').innerText = 'اتصال واتساب';
+      } else {
+        document.documentElement.lang = 'en';
+        document.body.style.direction = 'ltr';
+        document.getElementById('title').innerText = 'Ahlam Makeup';
+        document.getElementById('subtitle').innerText = 'Professional Makeup Artist';
+        document.getElementById('desc').innerText = 'Click the button below to contact Ahlam via WhatsApp';
+        document.getElementById('callBtn').innerText = 'Call on WhatsApp';
+      }
+    }
+  </script>
 </body>
 </html>
